@@ -20,11 +20,13 @@
 		},
 		versionAtLeast: function( v ) {
 			var testVersion = parse_version( v );
-			for( var i = 0; i < 3; i++ ) {
-				if( testVersion[i] !== this._version_parts[i] ) {
-					return testVersion[i] < this._version_parts[i];
-				}
-			}
+            if (this._version_parts) {
+                for( var i = 0; i < 3; i++ ) {
+                    if( testVersion[i] !== this._version_parts[i] ) {
+                        return testVersion[i] < this._version_parts[i];
+                    }
+                }
+            }
 			return true;
 		},
 		request: function( params ) {
